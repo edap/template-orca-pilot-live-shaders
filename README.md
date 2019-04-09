@@ -1,40 +1,15 @@
-## Instructions
+## Description
 
-In order to get this sketch running, download [Sonic PI](https://sonic-pi.net/). Open it and copy and paste this text on it:
+This is an openFrameworks app to live conding shaders receiving OSC signals from Orca.
 
+## Instruction
 
-```ruby
-live_loop :foo do
-  use_real_time
-  a, b, c, d= sync "/osc/trigger/prophet"
-  synth :tb303, note: a, attack: b, sustain: c*0.5, release: d
-end
-```
+In order to get this app running:
 
-When you are done, press the play button on the top-left corner of the screen. After that, launch the OF application. When the borders of the circle touches, you should here a sound
+- Download [Orca](https://github.com/hundredrabbits/Orca/) and [Pilot](https://github.com/hundredrabbits/Pilot).
+- Open Orca and Pilot. Pilot is a UDP synthetiser that receives UDP signals from ORCA and plays the sounds. From Orca, open the file `bin/data/pilot-example.orca`. You should ear the track as soon as you open it, if not, something is wrong with your installation.
+- Download [ofxAutoReloadedShader](https://github.com/andreasmuller/ofxAutoReloadedShader) and put it in the `addons` folder of your openFrameworks installation. Open this project with the project generator. Be sure that orca is sending OSC messages on the default port (49162). As soon as the app run, the torus and the sphere should move accordingly to the beat.
 
-### Topics
-OSC, synthesizers basics, geometric forms.
+## Live coding
+- Once the app is running, you can edit the file `frag.glsl` with any editor and it will be automatically reloaded.
 
-### Description
-Making sound with Sonic PI and openFrameworks.
-
-
-![img](bin/data/screenshot.png)
-
-### What did you learn
-How to use the OSC protocol to "talk" with other applications, what is a synthesizer and what does it mean "ADSR".
-
-### Exercise
-- Make a short animation with images, color and sound.
-- Read chapter 1 "Welcome to Sonic PI" and "Synths" of the sonic PI documentation.
-
-
-### References
-[Sonic PI and OSC](https://github.com/samaaron/sonic-pi/blob/master/etc/doc/tutorial/12.1-Receiving-OSC.md)
-
-[John Whitney, "Catalog" 1961](https://www.youtube.com/watch?v=TbV7loKp69s)
-
-[John Whitney, matrix 3](https://www.youtube.com/watch?v=ZrKgyY5aDvA)
-
-[John Whitney](https://en.wikipedia.org/wiki/John_Whitney_(animator))
